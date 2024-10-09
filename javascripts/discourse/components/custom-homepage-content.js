@@ -6,7 +6,7 @@ export default class CustomHomepageContent extends Component {
 
   get isCustomHomepage() {
     const { currentURL } = this.router;
-    const customPath = '/c/start-here/62/none';
+    const customPath = 'https://discourse-support.online/c/member-map/14';
     console.log("Current URL:", currentURL);  // Debugging: Check the URL
     return currentURL === customPath;
   }
