@@ -1,192 +1,86 @@
-{{#if this.isCustomHomepage}}
-<section class="course-overview1">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module Page</title>
+{{#if this.isCustomHomepage}} 
+  <section class="resources snipcss-aQjeH">
+    <h2>Subscribers Around the World</h2>
+    <p>Explore where our community members are located!</p>
+    
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Include Leaflet JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
     <style>
-        /* Base Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container444 {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header444 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header444 h1 {
-            font-size: 36px;
-            font-weight: 500;
-            color: #3f3f3f;
-        }
-
-        .cards444 {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .card444 {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            transition: transform 0.2s ease;
-        }
-
-        .card444:hover {
-            transform: scale(1.05);
-        }
-
-        .card-header444 img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .card-body444 {
-            padding: 20px;
-        }
-
-        .card-body444 h2 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .card-body444 p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .card-footer444 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px 20px;
-            font-size: 12px;
-            color: #777;
-        }
-
-        .icon-container444 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon-container444 i {
-            color: #ff5858;
-        }
-
-        .icon-container444 span {
-            color: #777;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cards444 {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .card444 {
-                width: 100%;
-            }
-        }
+      #map {
+        height: 500px;
+        width: 100%;
+        margin: 20px 0;
+      }
+      
+      .gold-marker {
+        background-color: gold;
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+      }
     </style>
-</head>
-<body>
 
-    <div class="container444">
-        <div class="header444">
-            <h1>Venture Capital Basic</h1>
-        </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the map
+        var map = L.map('map').setView([20.5937, 78.9629], 2); // Center on India by default
 
-        <div class="cards444">
-            <a href="https://impactinvestingcommunity.com/t/part-1-what-is-venture-capital/196" class="card-link">
-            <div class="card444">
-                <div class="card-header444">
-                    <img src="https://impactinvestingcommunity.com/uploads/default/original/1X/5c7f196f7f738b3bc26404e1541ecb61e84458d0.png" alt="Module Image 1">
-                </div>
-                <div class="card-body444">
-                    <h2>PART 1 | What is Venture Capital? </h2>
-                    <p>Share your key highlights or what stood out to you by clicking the "Reply" button below!</p>
-                </div>
-                <div class="card-footer444">
-                    <div class="icon-container444">
-                        <i class="fas fa-heart"></i><span>Aug 30</span>
-                    </div>
-                    <div class="icon-container444">
-                        <i class="fas fa-comment"></i><span>6</span>
-                    </div>
-                </div>
-            </div>
-            </a>
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-<a href="https://impactinvestingcommunity.com/t/part-2-venture-capital-impact-and-financial-expectations/197" class="card-link">
-            <div class="card444">
-                <div class="card-header444">
-                    <img src="https://impactinvestingcommunity.com/uploads/default/original/1X/f17213b68d57a584882520789383c00a069245b3.png" alt="Module Image 2">
-                </div>
-                <div class="card-body444">
-                    <h2>PART 2 | Venture Capital: Impact and Financial Expectations</h2>
-                    <p>Share your thoughts about this topic by clicking the "Reply" button below! WATCH NEXT ➡</p>
-                </div>
-                <div class="card-footer444">
-                    <div class="icon-container444">
-                        <i class="fas fa-heart"></i><span>Aug 30</span>
-                    </div>
-                    <div class="icon-container444">
-                        <i class="fas fa-comment"></i><span>10</span>
-                    </div>
-                </div>
-            </div>
-            </a>
+        // Custom marker icon
+        var goldMarker = L.divIcon({
+          className: 'gold-marker',
+          iconSize: [15, 15]
+        });
 
-<a href="https://impactinvestingcommunity.com/t/part-3-explaining-venture-capital-to-your-kids/198" class="card-link">
-            <div class="card444">
-                <div class="card-header444">
-                    <img src="https://impactinvestingcommunity.com/uploads/default/original/1X/49b73dbd09ee51dc5eb33f4e42ff6a1e51cf3940.png" alt="Module Image 3">
-                </div>
-                <div class="card-body444">
-                    <h2>PART 3 | Explaining Venture Capital To Your Kids</h2>
-                    <p>Share your ideas on how you talk about this with your kids by clicking the "Reply" button below!</p>
-                </div>
-                <div class="card-footer444">
-                    <div class="icon-container444">
-                        <i class="fas fa-heart"></i><span>Aug 30</span>
-                    </div>
-                    <div class="icon-container444">
-                        <i class="fas fa-comment"></i><span>8</span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
+        // Fetch user data dynamically
+        // Assuming the Discourse API provides user data with the 'location' field
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+        function addUserToMap(username, location) {
+          // Placeholder: Coordinates for some common countries (manual fallback)
+          var locationCoordinates = {
+            "India": [20.5937, 78.9629],
+            "USA": [37.0902, -95.7129],
+            "UK": [51.5074, -0.1278],
+            "Germany": [51.1657, 10.4515],
+            "Australia": [-25.2744, 133.7751],
+            "France": [46.6034, 1.8883],
+            // Add more default country coordinates here
+          };
 
+          // Use default coordinates for location if found
+          var coordinates = locationCoordinates[location];
+
+          if (coordinates) {
+            // Add the marker on the map
+            L.marker(coordinates, {icon: goldMarker}).addTo(map)
+              .bindPopup("<b>" + username + " from " + location + "</b>");
+          }
+        }
+
+        // Fetch users from Discourse API or backend (This is just a template call)
+        api.getJSON('/users.json').then(function (data) {
+          // Assuming data contains user details with a location field
+          var users = data.users;
+
+          users.forEach(function (user) {
+            if (user.location) {
+              addUserToMap(user.username, user.location);
+            }
+          });
+        });
+
+      });
+    </script>
   </section>
 {{/if}}
