@@ -1,0 +1,32 @@
+//footer//
+
+.footer {
+  background-color: #4A5841;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  width: 45%;
+}
+
+.footer-section h3 {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-family: 'Montserrat';
+    margin: 0;
+    color: #d3d3d3;
+}
+
+//footer-end//
