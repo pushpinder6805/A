@@ -1,11 +1,13 @@
 {{#if this.isCustomHomepage}}
 <section class="course-overview1">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Chat with OpenAI GPT</title>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -78,18 +80,9 @@
             background: #4CAF50;
         }
     </style>
-</head>
-<body>
-    <div id="chat-container">
-        <div id="chat-box"></div>
-        <div id="input-container">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
 
     <script>
-        const apiKey = '';  // Your API key
+        const apiKey = '';  // Placeholder for secure API key handling
 
         async function sendMessage() {
             const userInput = document.getElementById('user-input').value;
@@ -102,10 +95,10 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
+                    'Authorization': `Bearer ${apiKey}` // Use a secure method for the key
                 },
                 body: JSON.stringify({
-                    model: 'gpt-3.5-turbo-instruct', // Using the gpt-3.5-turbo-instruct model
+                    model: 'gpt-3.5-turbo-instruct',
                     prompt: userInput,
                     max_tokens: 150
                 })
@@ -132,7 +125,5 @@
             chatBox.scrollTop = chatBox.scrollHeight;
         }
     </script>
-</body>
-</html>
-  </section>
+</section>
 {{/if}}
