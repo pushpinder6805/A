@@ -6,7 +6,7 @@ export default class CustomHomepageContent extends Component {
 
   get isCustomHomepage() {
     const { currentURL } = this.router;
-    const customPaths = ['/c/free-educational-videos/venture-capital-basics/25', '/c/free-educational-videos/venture-capital-basics/25'];
+    const customPaths = ['/c/partner-offers/15', '/c/partner-offers'];
     
     console.log("Current URL:", currentURL);  // Debugging: Check the URL
     return customPaths.includes(currentURL);
